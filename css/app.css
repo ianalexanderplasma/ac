@@ -1,0 +1,76 @@
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    text-align: center;
+  }
+
+  #fileUploader {
+    margin-top: 20%;
+  }
+
+  .pdm {
+    color: #e60000;
+  }
+
+  .adm {
+    color: #D18100;
+  }
+
+  .fa-file-alt {
+    color: #0000ff;
+  }
+
+  .far, .fas {
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+  .far span, .fas span {
+    margin: 3px auto 0px auto;
+    font-size: 10px;
+    display: table;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #toggles {
+    color: #fff;
+    position: fixed;
+    top: 5px;
+    left: 20px;
+  }
+
+  #toggles input {
+    margin-right: 20px;
+  }
+
+  #chart {
+    margin-top: 60px;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  td {
+    white-space: nowrap;
+    padding: 10px;
+    text-align: center;
+  }
+
+  tr {
+    padding: 10px;
+    text-align: center;
+  }
+
+  tr h3 {
+    margin: 0;
+    padding:10px;
+  }
+
+  .row:hover {
+    background-color: #e5f4f8 !important;
+  }
+
+  .cell:hover {
+    background: #e0ffff !important;
+}
