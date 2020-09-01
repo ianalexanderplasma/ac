@@ -137,7 +137,6 @@ function createTable(){
       
     th.id = date_range[r];
     th.innerHTML = '<h3>'+humanizeTD(date_range[r])+'</h3>';
-    tr.style.background = '#000 !important';
     tr.appendChild(th);
   }
 

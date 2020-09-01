@@ -81,6 +81,11 @@ html, body {
     font-weight: 500;
   }
 
+  tr:first-child {
+    background: #000 !important;
+    color: #FFF !important; 
+  }
+
   .row:hover {
     background-color: #e5f4f8 !important;
   }
