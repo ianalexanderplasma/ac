@@ -55,6 +55,11 @@ html, body {
     margin-top: 100px;
   }
 
+  #chart tbody tr:first-child {
+    background: #000 !important;
+    color: #FFF !important; 
+  }
+
   #legend {
     color: #000;
     background: #fff;
@@ -79,11 +84,6 @@ html, body {
     margin: 0;
     padding: 10px;
     font-weight: 500;
-  }
-
-  tr:first-child {
-    background: #000 !important;
-    color: #FFF !important; 
   }
 
   .row:hover {
