@@ -334,6 +334,7 @@ function getCounts(){
     } else {
       context_obj.context.type  = 0;
     }
+  }
 }
 
 
