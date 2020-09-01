@@ -72,30 +72,24 @@ function symbolize(type, pdm_adm){
 
   case 'Meeting':
     symbol = '<i class="far fa-calendar"><br><span></span></i>';
-    //meeting_count++;
     break;
   case 'Memo':
     if (pdm_adm == undefined){
       pdm_adm = '???';
     }
     symbol = '<i class="far fa-file-alt pdm"><br><span>'+pdm_adm+'</span></i>';
-    //memo_count++;
     break;
   case 'BB3 Storm':
     symbol = '<i class="fas fa-users"><br><span></span></i>';
-    //bb3storm_count++;
     break;
   case 'PDM':
     symbol = '<i class="fas fa-crown pdm"><br><span>'+pdm_adm+'</span></i>';
-    //pdm_count++;
     break;
   case 'PDM Prep':
     symbol = '<i class="fas fa-tools pdm"><br><span></span></i>';
-    //prep_count++;
     break;
   case 'ADM':
     symbol = '<i class="fas fa-crown adm"><br><span>'+pdm_adm+'</span></i>';
-    //prep_count++;
     break;
 }
 return symbol;
@@ -324,3 +318,30 @@ function draggable(){
     $(document).mousemove(move).mouseup(up);
   });
 }
+
+function getCounts(){
+  var context_array = getContexts();
+  var context_obj = context_array.reduce((a,b)=> (a[b]={},a),{});
+
+  for (var i = 0; i < json_obj.length; i++) {
+    
+    var context = json_obj[i].CONTEXT;
+    var type = json_obj[i].TYPE;
+
+    if (context_obj.context.type) {
+      context_obj.context.type  += 1;
+      console.log(context_obj.context.type);
+    } else {
+      context_obj.context.type  = 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
