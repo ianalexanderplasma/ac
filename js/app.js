@@ -125,7 +125,7 @@ function createTable(){
 
   var context_array = getContexts();
   var date_range = getDateRange();
-
+  var key  = document.getElementById('key');
   var table  = document.getElementById('chart');
   var tr = table.insertRow();
   var th = document.createElement('th');
@@ -166,13 +166,13 @@ function createTable(){
           var date_str = month+'/'+date+'/'+year;
           var metadata = json_obj[i].TYPE +': '+date_str;
           td.innerHTML += '<span title="'+metadata+'">'+symbolize(json_obj[i].TYPE, json_obj[i].PDM_ADM)+'</span>';
-
         }
       }
     }
   }
   stripe();
   table.style.display="table";
+  key.style.display="block";
   draggable();
 }
 
