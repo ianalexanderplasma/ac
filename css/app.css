@@ -35,8 +35,16 @@ html, body {
   #toggles {
     color: #fff;
     position: fixed;
-    top: 5px;
-    left: 20px;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: left;
+  }
+
+  #toggles p {
+    padding-left: 20px;
+    display: inline-block;
+    white-space: nowrap;
   }
 
   #toggles input {
@@ -82,12 +90,13 @@ html, body {
 
   .table-dragable > tbody > tr.grabbed {
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    background: #e0ffff !important
   }
 
   .table-dragable > tbody > tr.grabbed:active {
     user-input: none;
   }
-  
+
   .table-dragable > tbody > tr.grabbed:active * {
     user-input: none;
     cursor: grabbing !important;
