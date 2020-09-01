@@ -14,58 +14,37 @@
 
     <input type="file" id="fileUploader" name="fileUploader" accept=".xls, .xlsx"/>
 
-    <div id='toggles'></div>
+    <div id="toggles"></div>
 
-    <table id='chart' style='display: none'></table>
+    <table id="chart" class="table-dragable" style="display: none"></table>
 
-
-
-
-    <h1>Sorting A Table With jQuery UI</h1>
-<a href='http://www.foliotek.com/devblog/make-table-rows-sortable-using-jquery-ui-sortable/'>Make table rows sortable with jQuery UI</a>
-
-<h2>With <a href='http://www.foliotek.com/devblog/make-table-rows-sortable-using-jquery-ui-sortable/'>original fix</a> applied</h2>
-<table id="sort" class="grid" title="Kurt Vonnegut novels">
-    <thead>
-        <tr><th>Year</th><th>Title</th><th>Grade</th></tr>
-    </thead>
-    <tbody>
-        <tr><td>1969</td><td>Slaughterhouse-Five</td><td>A+</td></tr>
-        <tr><td>1952</td><td>Player Piano</td><td>B</td></tr>
-        <tr><td>1963</td><td>Cat's Cradle</td><td>A+</td></tr>
-        <tr><td>1973</td><td>Breakfast of Champions</td><td>C</td></tr>
-        <tr><td>1965</td><td>God Bless You, Mr. Rosewater</td><td>A</td></tr>
-    </tbody>
+<table class="table-dragable">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="grabable">
+      <td>1</td>
+      <td>First Row</td>
+      <td>Lorem ipsum</td>
+      <td>Dolor</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Second Row</td>
+      <td><input /></td>
+      <td><a href="#">Link</a></td>
+      <td class="grabable">&varr;</td>
+    </tr>
+  </tbody>
 </table>
-
-<h2><a href='http://stackoverflow.com/a/1372954/76137'>Modified fix</a> applied</h2>
-<table id="sort2" class="grid" title="Kurt Vonnegut novels">
-    <thead>
-        <tr><th>Year</th><th>Title</th><th>Grade</th></tr>
-    </thead>
-    <tbody>
-        <tr><td>1969</td><td>Slaughterhouse-Five</td><td>A+</td></tr>
-        <tr><td>1952</td><td>Player Piano</td><td>B</td></tr>
-        <tr><td>1963</td><td>Cat's Cradle</td><td>A+</td></tr>
-        <tr><td>1973</td><td>Breakfast of Champions</td><td>C</td></tr>
-        <tr><td>1965</td><td>God Bless You, Mr. Rosewater</td><td>A</td></tr>
-    </tbody>
-</table>
-
-<h2>No fix applied</h2>
-<table id="sort3" class="grid" title="Kurt Vonnegut novels">
-    <thead>
-        <tr><th>Year</th><th>Title</th><th>Grade</th></tr>
-    </thead>
-    <tbody>
-        <tr><td>1969</td><td>Slaughterhouse-Five</td><td>A+</td></tr>
-        <tr><td>1952</td><td>Player Piano</td><td>B</td></tr>
-        <tr><td>1963</td><td>Cat's Cradle</td><td>A+</td></tr>
-        <tr><td>1973</td><td>Breakfast of Champions</td><td>C</td></tr>
-        <tr><td>1965</td><td>God Bless You, Mr. Rosewater</td><td>A</td></tr>
-    </tbody>
-</table>
-
 
     
 </body>
