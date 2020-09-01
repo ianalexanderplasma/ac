@@ -125,7 +125,7 @@ function createTable(){
 
   var context_array = getContexts();
   var date_range = getDateRange();
-  var key  = document.getElementById('key');
+  var legend  = document.getElementById('legend');
   var table  = document.getElementById('chart');
   var tr = table.insertRow();
   var th = document.createElement('th');
@@ -172,7 +172,7 @@ function createTable(){
   }
   stripe();
   table.style.display="table";
-  key.style.display="block";
+  legend.style.display="block";
   draggable();
 }
 
