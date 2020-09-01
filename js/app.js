@@ -298,6 +298,7 @@ function convertMonth(month){
 /* DRAGGABLE TABLE */
 
 $('.table-dragable tbody .grabable').mousedown(function(e) {
+  console.log('TEST');
   var tr = $(e.target).closest('tr'),
     sy = e.pageY,
     drag;
