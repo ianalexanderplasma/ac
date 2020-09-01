@@ -297,21 +297,34 @@ function convertMonth(month){
 
 /* SORTABLE TABLE */
 
+// Return a helper with preserved width of cells
+var fixHelper = function(e, ui) {
+    ui.children().each(function() {
+        $(this).width($(this).width());
+    });
+    return ui;
+};
+
+$("#sort tbody").sortable({
+    helper: fixHelper
+}).disableSelection();
+
+
+
 var fixHelperModified = function(e, tr) {
     var $originals = tr.children();
     var $helper = tr.clone();
-    $helper.children().each(function(index) {
-        $(this).width($originals.eq(index).width())
+    $helper.children().each(function(index)
+    {
+      $(this).width($originals.eq(index).width())
     });
     return $helper;
-},
-    updateIndex = function(e, ui) {
-        $('td.index', ui.item.parent()).each(function (i) {
-            $(this).html(i + 1);
-        });
-    };
+};
 
-$("#sort tbody").sortable({
-    helper: fixHelperModified,
-    stop: updateIndex
+$("#sort2 tbody").sortable({
+    helper: fixHelperModified 
+    
 }).disableSelection();
+
+
+$("#sort3 tbody").sortable().disableSelection();
