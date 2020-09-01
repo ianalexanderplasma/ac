@@ -173,6 +173,7 @@ function createTable(){
   }
 
   table.style.display="block";
+  stripe();
   draggable();
 }
 
@@ -312,10 +313,12 @@ function draggable(){
         if (e.pageY >= y && e.pageY < y + s.outerHeight()) {
           if (i < tr.index()) s.insertAfter(tr);
           else s.insertBefore(tr);
+          stripe();
           return false;
         }
       });
     }
+
     function up (e) {
       if (drag && index != tr.index()) {
         drag = false;
@@ -324,6 +327,5 @@ function draggable(){
       $(tr).removeClass('grabbed');
     }
     $(document).mousemove(move).mouseup(up);
-    stripe();
   });
 }
