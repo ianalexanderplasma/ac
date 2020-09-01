@@ -48,7 +48,7 @@
 <script type="text/javascript">
 	
 	$('.table-dragable tbody .grabable').mousedown(function (e) {
-		alert('TEST');
+		console.log('TEST');
   var tr = $(e.target).closest('tr'), sy = e.pageY, drag;
   if ($(e.target).is('tr')) tr = $(e.target);
   var index = tr.index();
