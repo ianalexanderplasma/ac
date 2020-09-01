@@ -131,9 +131,11 @@
 
 
 <script type="text/javascript">
+
+function draggable(){
 	
 	$('.table-dragable tbody .grabable').mousedown(function (e) {
-		console.log('TEST');
+		console.log('DRAG');
 		var tr = $(e.target).closest('tr'), sy = e.pageY, drag;
 		if ($(e.target).is('tr')) tr = $(e.target);
 		var index = tr.index();
@@ -160,6 +162,8 @@
 		}
 		$(document).mousemove(move).mouseup(up);
 	});
+	stripe();
+}
 
 </script>
 

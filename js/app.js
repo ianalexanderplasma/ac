@@ -173,7 +173,7 @@ function createTable(){
   }
 
   table.style.display="block";
-  stripe();
+  draggable();
 }
 
 function createToggle(id) {
