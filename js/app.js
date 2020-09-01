@@ -104,13 +104,11 @@ return symbol;
 
 function getContexts(){
     const contexts = [...new Set(json_obj.map(x => x.CONTEXT))].sort();
-    console.log(contexts);
     return contexts;
 }
 
 function getDateRange(){
     const dates = [...new Set(json_obj.map(x => x.TD))].sort();
-    console.log(dates);
     return dates;
 }
 
@@ -167,7 +165,6 @@ function createTable(){
           
           var date_str = month+'/'+date+'/'+year;
           var metadata = json_obj[i].TYPE +': '+date_str;
-          console.log(metadata);
           td.innerHTML += '<span title="'+metadata+'">'+symbolize(json_obj[i].TYPE, json_obj[i].PDM_ADM)+'</span>';
 
         }
@@ -213,9 +210,7 @@ function stripe(){
   for (var i = 0, row; row = table.rows[i]; i++) {
 
     if (row.style.display == 'none'){
-      console.log('hidden');
     }  else {
-      console.log('visible');
       counter++;
       if (counter%2 == 0){
         row.style.background = '#f2f2f2';
