@@ -336,13 +336,3 @@ function getCounts(){
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
