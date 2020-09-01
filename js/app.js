@@ -137,6 +137,7 @@ function createTable(){
       
     th.id = date_range[r];
     th.innerHTML = '<h3>'+humanizeTD(date_range[r])+'</h3>';
+    tr.style.background = '#000';
     tr.appendChild(th);
   }
 
@@ -177,7 +178,6 @@ function createTable(){
 }
 
 function createToggle(id) {
-
   var div = document.getElementById('toggles');
   var p = document.createElement('p');
   var input = document.createElement('input');
@@ -187,10 +187,7 @@ function createToggle(id) {
   input.checked = true;
   div.appendChild(p);
   div.appendChild(input);
-
   input.addEventListener('change', function() { toggle(id)});
-
-
 }
 
 function toggle(id) {

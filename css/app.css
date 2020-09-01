@@ -33,7 +33,7 @@ html, body {
   }
 
   #toggles {
-    color: #fff;
+    background: #fff;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -55,6 +55,11 @@ html, body {
     margin-top: 100px;
   }
 
+  #legend {
+    color: #000;
+    background: #fff;
+  }
+
   table {
     border-collapse: collapse;
   }
@@ -72,7 +77,8 @@ html, body {
 
   tr h3 {
     margin: 0;
-    padding:10px;
+    padding: 10px;
+    font-weight: 500;
   }
 
   .row:hover {
