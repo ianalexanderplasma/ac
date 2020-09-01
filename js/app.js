@@ -144,7 +144,7 @@ function createTable(){
 
     var tr = table.insertRow();
     var td_head = tr.insertCell();
-    tr.classList.add("row", "grabable");
+    tr.classList.add("grabable");
     tr.id = context_array[c];
     createToggle(context_array[c]);
 
