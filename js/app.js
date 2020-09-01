@@ -171,9 +171,8 @@ function createTable(){
       }
     }
   }
-
-  table.style.display="block";
   stripe();
+  table.style.display="table";
   draggable();
 }
 
@@ -299,7 +298,7 @@ function convertMonth(month){
 function draggable(){
   
   $('.table-dragable tbody .grabable').mousedown(function (e) {
-    console.log('DRAG');
+
     var tr = $(e.target).closest('tr'), sy = e.pageY, drag;
     if ($(e.target).is('tr')) tr = $(e.target);
     var index = tr.index();
@@ -313,7 +312,6 @@ function draggable(){
         if (e.pageY >= y && e.pageY < y + s.outerHeight()) {
           if (i < tr.index()) s.insertAfter(tr);
           else s.insertBefore(tr);
-          stripe();
           return false;
         }
       });
@@ -325,6 +323,7 @@ function draggable(){
       }
       $(document).unbind('mousemove', move).unbind('mouseup', up);
       $(tr).removeClass('grabbed');
+      stripe();
     }
     $(document).mousemove(move).mouseup(up);
   });
