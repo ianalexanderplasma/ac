@@ -112,3 +112,15 @@ html, body {
     user-input: none;
     cursor: grabbing !important;
   }
+
+  .count {
+    font-size: 14px;
+    color: blue;
+    cursor: pointer;
+  }
+
+   .count:hover {
+    text-decoration: underline;
+  }
+
+

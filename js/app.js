@@ -115,9 +115,20 @@ function humanizeTD(td){
   return metadata;
 }
 
+var context_obj = {};
+
+
 function createTable(){
 
   var context_array = getContexts();
+  context_obj = context_array.reduce((a,b)=> (a[b]={},a),{});
+
+  for (key in context_obj) {
+    if (context_obj.hasOwnProperty(key)) {
+        context_obj[key] = { 'Meeting': 0, 'Memo': 0, 'BB3 Storm': 0, 'PDM': 0, 'PDM Prep': 0, 'ADM': 0, 'Touch': 0};
+    }
+  }
+  //console.log(context_obj);
   var date_range = getDateRange();
   var legend  = document.getElementById('legend');
   var table  = document.getElementById('chart');
@@ -125,6 +136,7 @@ function createTable(){
   var th = document.createElement('th');
   tr.appendChild(th);
 
+  // add date column headings
   for (var r = 0; r < date_range.length; r++) {
 
     var th = document.createElement('th');      
@@ -134,15 +146,19 @@ function createTable(){
     tr.appendChild(th);
   }
 
+  // for each context, create row
+
   for (var c = 0; c < context_array.length; c++) {
 
     var tr = table.insertRow();
     var td_head = tr.insertCell();
     tr.classList.add("grabable");
     tr.id = context_array[c];
-    createToggle(context_array[c]);
+    td_head.innerHTML = '<h3>'+context_array[c]+'</h3><span id="'+context_array[c]+'" class="count" title="Click to view counts" onclick="alertCounts(this.id);">View counts</span>';
 
-    td_head.innerHTML = '<h3>'+context_array[c]+'</h3>';
+
+    // add toggle UI based on context rows
+    createToggle(context_array[c]);
 
     for (var d = 0; d < date_range.length; d++) {
 
@@ -153,6 +169,11 @@ function createTable(){
 
         if (json_obj[i].CONTEXT == context_array[c] && json_obj[i].TD == date_range[d]){
 
+          // ADD counts to context_obj
+          var instance_context = json_obj[i].CONTEXT;
+          var instance_type = json_obj[i].TYPE;
+          context_obj[instance_context][instance_type] += 1;
+          
           var month = json_obj[i].DATE.getMonth() + 1;
           var date = json_obj[i].DATE.getDate()+ 1;
           var year = json_obj[i].DATE.getFullYear().toString();
@@ -168,6 +189,17 @@ function createTable(){
   table.style.display="table";
   legend.style.display="block";
   draggable();
+}
+
+function alertCounts(id){
+  var parsed = JSON.stringify(context_obj[id], null, 4);
+  var a_string = parsed.replace('{','');
+  var b_string = a_string.replace('}','');
+  var c_string = b_string.replaceAll('"','');
+  var d_string = c_string.replaceAll(',','');
+  
+  alert(id+':'+d_string);
+
 }
 
 function createToggle(id) {
@@ -320,19 +352,14 @@ function draggable(){
 }
 
 function getCounts(){
-  var context_array = getContexts();
-  var context_obj = context_array.reduce((a,b)=> (a[b]={},a),{});
+  var arr = getContexts();
+  var context_obj = arr.reduce((a,b)=> (a[b]={},a),{});
+  console.log(context_obj);
 
-  for (var i = 0; i < json_obj.length; i++) {
-    
-    var context = json_obj[i].CONTEXT;
-    var type = json_obj[i].TYPE;
-
-    if (context_obj.context.type) {
-      context_obj.context.type  += 1;
-      console.log(context_obj.context.type);
-    } else {
-      context_obj.context.type  = 0;
-    }
+  for (const property in context_obj) {
+    context_obj.AFG = 0;
+    //console.log(${property}: ${context_obj[property]});
+    //console.log()
   }
+  console.log(context_obj);
 }
