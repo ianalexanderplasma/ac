@@ -350,16 +350,3 @@ function draggable(){
     $(document).mousemove(move).mouseup(up);
   });
 }
-
-function getCounts(){
-  var arr = getContexts();
-  var context_obj = arr.reduce((a,b)=> (a[b]={},a),{});
-  console.log(context_obj);
-
-  for (const property in context_obj) {
-    context_obj.AFG = 0;
-    //console.log(${property}: ${context_obj[property]});
-    //console.log()
-  }
-  console.log(context_obj);
-}
