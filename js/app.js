@@ -2,7 +2,7 @@ var json_obj;
 
 // Get ready to translate uploaded xlsx file into JSON object
 $(document).ready(function(){
-  console.log("TEST 3!");
+  console.log("TEST 5!");
       $("#fileUploader").change(function(evt){
             var selectedFile = evt.target.files[0];
             var reader = new FileReader();
@@ -20,8 +20,8 @@ $(document).ready(function(){
 
                   // Convert excel dates to JS Date objects
                   for (var i = 0; i < json_obj.length; i++) {
-                    console.log(json_obj[i].DATE);
-                    json_obj[i].DATE = ExcelDateToJSDate(json_obj[i].DATE);
+                    //json_obj[i].DATE = ExcelDateToJSDate(json_obj[i].DATE);
+                    json_obj[i].DATE = getJsDateFromExcel(json_obj[i].DATE);
                     var month = json_obj[i].DATE.getMonth().toString();
                     var year = json_obj[i].DATE.getFullYear().toString();
                     var date_id = year+'-'+month;
@@ -52,19 +52,26 @@ function ExcelDateToJSDate(serial) {
   var utc_value = utc_days * 86400;                                        
   var date_info = new Date(utc_value * 1000);
 
-  var fractional_day = serial - Math.floor(serial) + 0.0000001;
+  // var fractional_day = serial - Math.floor(serial) + 0.0000001;
 
-  var total_seconds = Math.floor(86400 * fractional_day);
+  // var total_seconds = Math.floor(86400 * fractional_day);
 
-  var seconds = total_seconds % 60;
+  // var seconds = total_seconds % 60;
 
-  total_seconds -= seconds;
+  // total_seconds -= seconds;
 
-  var hours = Math.floor(total_seconds / (60 * 60));
-  var minutes = Math.floor(total_seconds / 60) % 60;
+  // var hours = Math.floor(total_seconds / (60 * 60));
+  // var minutes = Math.floor(total_seconds / 60) % 60;
 
-  return new Date(date_info.getFullYear(), date_info.getMonth(), date_info.getDate());
+  var newDate  = new Date(Date.UTC(date_info.getFullYear(), date_info.getMonth(), date_info.getDate()));
+  console.log(newDate);
+
+  return newDate;
+
+  new Date((excelDate - (25567 + 1))*86400*1000);
 }
+
+function getJsDateFromExcel(excelDate) { return new Date((excelDate - (25567 + 2))*86400*1000); }
 
 function symbolize(type, pdm_adm){
 
@@ -174,14 +181,17 @@ function createTable(){
           // ADD counts to context_obj
           var instance_context = json_obj[i].CONTEXT;
           var instance_type = json_obj[i].TYPE;
+
           context_obj[instance_context][instance_type] += 1;
           
-          var month = json_obj[i].DATE.getMonth() + 1;
-          var date = json_obj[i].DATE.getDate()+ 1;
+          var month = json_obj[i].DATE.getMonth().toString();
+          var date = json_obj[i].DATE.getDate().toString();
           var year = json_obj[i].DATE.getFullYear().toString();
           
           var date_str = month+'/'+date+'/'+year;
+
           var metadata = json_obj[i].TYPE +': '+date_str;
+
           td.innerHTML += '<span title="'+metadata+'">'+symbolize(json_obj[i].TYPE, json_obj[i].PDM_ADM)+'</span>';
         }
       }
