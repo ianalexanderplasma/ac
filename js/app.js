@@ -19,6 +19,7 @@ $(document).ready(function(){
 
                   // Convert excel dates to JS Date objects
                   for (var i = 0; i < json_obj.length; i++) {
+                    console.log(json_obj[i].DATE);
                     json_obj[i].DATE = ExcelDateToJSDate(json_obj[i].DATE);
                     var month = json_obj[i].DATE.getMonth().toString();
                     var year = json_obj[i].DATE.getFullYear().toString();
