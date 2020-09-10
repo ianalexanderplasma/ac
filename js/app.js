@@ -2,7 +2,7 @@ var json_obj;
 
 // Get ready to translate uploaded xlsx file into JSON object
 $(document).ready(function(){
-  console.log("TEST 5!");
+  console.log("V6!");
       $("#fileUploader").change(function(evt){
             var selectedFile = evt.target.files[0];
             var reader = new FileReader();
@@ -48,7 +48,7 @@ $(document).ready(function(){
 
 // Function to convert excel dates to JS Date objects
 function ExcelDateToJSDate(serial) {
-  var utc_days  = Math.floor(serial - 25569);
+  var utc_days  = Math.floor(serial - 25567); // subtracted 2 less. Originally 25569
   var utc_value = utc_days * 86400;                                        
   var date_info = new Date(utc_value * 1000);
 
@@ -68,7 +68,6 @@ function ExcelDateToJSDate(serial) {
 
   return newDate;
 
-  new Date((excelDate - (25567 + 1))*86400*1000);
 }
 
 function getJsDateFromExcel(excelDate) { return new Date((excelDate - (25567 + 2))*86400*1000); }
