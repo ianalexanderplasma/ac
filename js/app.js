@@ -2,7 +2,7 @@ var json_obj;
 
 // Get ready to translate uploaded xlsx file into JSON object
 $(document).ready(function(){
-  console.log("TEST 2!");
+  console.log("TEST!");
       $("#fileUploader").change(function(evt){
             var selectedFile = evt.target.files[0];
             var reader = new FileReader();
@@ -47,27 +47,23 @@ $(document).ready(function(){
 
 
 // Function to convert excel dates to JS Date objects
-// function ExcelDateToJSDate(serial) {
-//   var utc_days  = Math.floor(serial - 25569);
-//   var utc_value = utc_days * 86400;                                        
-//   var date_info = new Date(utc_value * 1000);
+function ExcelDateToJSDate(serial) {
+  var utc_days  = Math.floor(serial - 25569);
+  var utc_value = utc_days * 86400;                                        
+  var date_info = new Date(utc_value * 1000);
 
-//   var fractional_day = serial - Math.floor(serial) + 0.0000001;
+  var fractional_day = serial - Math.floor(serial) + 0.0000001;
 
-//   var total_seconds = Math.floor(86400 * fractional_day);
+  var total_seconds = Math.floor(86400 * fractional_day);
 
-//   var seconds = total_seconds % 60;
+  var seconds = total_seconds % 60;
 
-//   total_seconds -= seconds;
+  total_seconds -= seconds;
 
-//   var hours = Math.floor(total_seconds / (60 * 60));
-//   var minutes = Math.floor(total_seconds / 60) % 60;
+  var hours = Math.floor(total_seconds / (60 * 60));
+  var minutes = Math.floor(total_seconds / 60) % 60;
 
-//   return new Date(date_info.getFullYear(), date_info.getMonth(), date_info.getDate(), hours, minutes, seconds);
-// }
-
-function ExcelDateToJSDate(date) {
-  return new Date(Math.round((date - 25569)*86400*1000));
+  return new Date(date_info.getFullYear(), date_info.getMonth(), date_info.getDate());
 }
 
 function symbolize(type, pdm_adm){
