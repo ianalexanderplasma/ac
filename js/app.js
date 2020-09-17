@@ -184,7 +184,7 @@ function createTable(){
           
           var month = (json_obj[i].DATE.getMonth() + 1).toString(); // account for starting val of 0
           var date = (json_obj[i].DATE.getDate() + 1).toString();   // account for starting val of 0
-          var year = json_obj[i].DATE.getFullYear() + 1.toString();
+          var year = json_obj[i].DATE.getFullYear().toString();
           
           var date_str = month+'/'+date+'/'+year;
 
