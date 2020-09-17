@@ -2,7 +2,7 @@ var json_obj;
 
 // Get ready to translate uploaded xlsx file into JSON object
 $(document).ready(function(){
-  console.log("V7 - test");
+  console.log("V7!");
       $("#fileUploader").change(function(evt){
             var selectedFile = evt.target.files[0];
             var reader = new FileReader();
@@ -19,15 +19,15 @@ $(document).ready(function(){
                   json_obj = JSON.parse(json_object);
 
                   // Convert excel dates to JS Date objects
-                  // for (var i = 0; i < json_obj.length; i++) {
-                  //   json_obj[i].DATE = ExcelDateToJSDate(json_obj[i].DATE);
-                  //   json_obj[i].DATE = getJsDateFromExcel(json_obj[i].DATE);
-                  //   var month = json_obj[i].DATE.getMonth().toString();
-                  //   var year = json_obj[i].DATE.getFullYear().toString();
-                  //   var date_id = year+'-'+month;
-                  //   json_obj[i].TD = date_id;
+                  for (var i = 0; i < json_obj.length; i++) {
+                    json_obj[i].DATE = ExcelDateToJSDate(json_obj[i].DATE);
+                    //json_obj[i].DATE = getJsDateFromExcel(json_obj[i].DATE);
+                    var month = json_obj[i].DATE.getMonth().toString();
+                    var year = json_obj[i].DATE.getFullYear().toString();
+                    var date_id = year+'-'+month;
+                    json_obj[i].TD = date_id;
                     
-                  // }
+                  }
 
                 })
 
