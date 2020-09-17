@@ -2,7 +2,7 @@ var json_obj;
 
 // Get ready to translate uploaded xlsx file into JSON object
 $(document).ready(function(){
-  console.log("V7!");
+  console.log("V8!");
       $("#fileUploader").change(function(evt){
             var selectedFile = evt.target.files[0];
             var reader = new FileReader();
@@ -183,7 +183,7 @@ function createTable(){
           context_obj[instance_context][instance_type] += 1;
           
           var month = (json_obj[i].DATE.getMonth() + 1).toString(); // account for starting val of 0
-          var date = (json_obj[i].DATE.getDate() + 1).toString();   // account for starting val of 0
+          var date = json_obj[i].DATE.getDate().toString();   // account for starting val of 0
           var year = json_obj[i].DATE.getFullYear().toString();
           
           var date_str = month+'/'+date+'/'+year;
