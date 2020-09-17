@@ -2,7 +2,7 @@ var json_obj;
 
 // Get ready to translate uploaded xlsx file into JSON object
 $(document).ready(function(){
-  console.log("V6!");
+  console.log("V7!");
       $("#fileUploader").change(function(evt){
             var selectedFile = evt.target.files[0];
             var reader = new FileReader();
@@ -64,6 +64,7 @@ function ExcelDateToJSDate(serial) {
   // var minutes = Math.floor(total_seconds / 60) % 60;
 
   var newDate  = new Date(Date.UTC(date_info.getFullYear(), date_info.getMonth(), date_info.getDate()));
+
   console.log(newDate);
 
   return newDate;
@@ -114,7 +115,6 @@ function getDateRange(){
     return dates;
 }
 
-
 function humanizeTD(td){
   var year = td.substring(0, 4);
   var month = convertMonth(td.slice(5));
@@ -124,7 +124,6 @@ function humanizeTD(td){
 }
 
 var context_obj = {};
-
 
 function createTable(){
 
@@ -183,9 +182,9 @@ function createTable(){
 
           context_obj[instance_context][instance_type] += 1;
           
-          var month = json_obj[i].DATE.getMonth().toString();
-          var date = json_obj[i].DATE.getDate().toString();
-          var year = json_obj[i].DATE.getFullYear().toString();
+          var month = (json_obj[i].DATE.getMonth() + 1).toString(); // account for starting val of 0
+          var date = (json_obj[i].DATE.getDate() + 1).toString();   // account for starting val of 0
+          var year = json_obj[i].DATE.getFullYear() + 1.toString();
           
           var date_str = month+'/'+date+'/'+year;
 
